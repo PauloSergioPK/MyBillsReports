@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f6fc"
+    tools:context=".activities.MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/layoutBottomTabs"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageReceitas"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:onClick="irParaTelaReceitas"
+            app:srcCompat="@drawable/ic_round_trending_up_24" />
+
+        <ImageView
+            android:id="@+id/imageDespesas"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:onClick="irParaTelaDespesas"
+            app:srcCompat="@drawable/ic_baseline_trending_down_24" />
+
+        <ImageView
+            android:id="@+id/imagePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:onClick="irParaTelaPerfil"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_baseline_person_24" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="15dp"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toTopOf="@+id/layoutBottomTabs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarPrincipal">
+
+        <LinearLayout
+            android:id="@+id/layoutScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/layout_saldo"></include>
+            <include layout="@layout/layout_economia_mensal"></include>
+            <include layout="@layout/despesas_por_categoria_layout"></include>
+            <include layout="@layout/receitas_por_categoria_layout"></include>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
